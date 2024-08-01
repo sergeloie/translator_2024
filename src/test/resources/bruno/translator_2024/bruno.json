@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "translator_2024",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
