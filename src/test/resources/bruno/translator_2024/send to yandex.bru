@@ -5,11 +5,19 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: https://translate.api.cloud.yandex.net/translate/v2/translate
+  body: json
   auth: bearer
 }
 
 auth:bearer {
-  token: IAM
+  token: t1.9euelZqOl56Yi5OajJ3OkJacipjJkO3rnpWalJSWnY6NkcaWz5zOz5DMjo7l9PcsNU5K-e8gLG-13fT3bGNLSvnvICxvtc3n9euelZqam5vOy4ubl5vHisnGlZCKnu_8xeuelZqam5vOy4ubl5vHisnGlZCKng.9luiiJ4plS2D7YHYR2hudE8U5ovtoEXj_xZgGh0-ixTs2EZ6JUoptYM4ZQqCQm9D_KX9bOtjuQj4NuwCuEvhDg
+}
+
+body:json {
+  {
+      "folderId": "b1gtv27i6p2vpic0ae19",
+      "texts": ["Collaborate", "String"],
+      "targetLanguageCode": "ru"
+  }
 }
