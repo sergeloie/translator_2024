@@ -52,4 +52,10 @@ class YandexServiceTest {
         System.out.println(result);
     }
 
+    @Test
+    void tokenTest() throws JsonProcessingException {
+        String result = yandexService.getIAMTokenFromOAuth().getIamToken();
+        System.out.println(result);
+    }
+
 }
