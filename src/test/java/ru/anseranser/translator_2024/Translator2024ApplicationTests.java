@@ -47,10 +47,17 @@ class Translator2024ApplicationTests {
 
 	@Test
 	void translateRussian() throws URISyntaxException, JsonProcessingException {
-		String word = "солнце";
-		String assertedWords = "sun";
+		String word = "борода";
+		String assertedWords = "beard";
 		String result = yandexTranslatorService.translateWord(word, "en");
-		System.out.println(result);
+		assertThat(assertedWords).isEqualTo(result);
+	}
+
+	@Test
+	void translateCzech() throws URISyntaxException, JsonProcessingException {
+		String words = "Bezplatná služba Google umožňuje okamžitý překlad slov";
+		String assertedWords = "Google's free service lets you translate words instantly";
+		String result = yandexTranslatorService.translateWord(words, "en");
 		assertThat(assertedWords).isEqualTo(result);
 	}
 }

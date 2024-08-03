@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -44,33 +45,14 @@ public class YandexTranslatorService {
     private final ObjectMapper objectMapper;
     private final RestTemplate restTemplate;
 
-/*    public String translate(String textToBeTranslated, String sourceLanguage, String targetLanguage) throws JsonProcessingException, URISyntaxException {
-
-        if (!supportedLanguages.contains(sourceLanguage)) {
-            throw new SourceLanguageNotFoundException(sourceLanguage);
-        }
-
-        if (!supportedLanguages.contains(targetLanguage)) {
-            throw new TargetLanguageNotFoundException(targetLanguage);
-        }
-
-        regenerateToken();
-        List<String> words = Arrays.stream(textToBeTranslated.split("\\s+")).toList();
-        List<String> translatedWords = new ArrayList<>();
-        for (String word : words) {
-            translatedWords.add(translateWord(word, targetLanguage));
-        }
-        return String.join(" ", translatedWords);
-    }*/
-
     public String translateWord(String word, String targetLanguage) throws JsonProcessingException, URISyntaxException {
         YandexRequestDTO yandexRequestDTO = new YandexRequestDTO();
         yandexRequestDTO.setTexts(List.of(word));
         yandexRequestDTO.setTargetLanguageCode(targetLanguage);
         String json = objectMapper.writeValueAsString(yandexRequestDTO);
-//        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(yandexToken.getIamToken());
+        headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> entity = new HttpEntity<>(json, headers);
         ResponseEntity<YandexResponseDTO> response = restTemplate.postForEntity(new URI(YANDEX_TRANSLATE_API_URL), entity, YandexResponseDTO.class);
         if (response.getStatusCode().isError()) {

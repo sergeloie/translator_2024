@@ -1,5 +1,11 @@
 FROM eclipse-temurin:21-jre-alpine AS layers
-ENV YANDEX_OAUTH_TOKEN=
+
+ARG YANDEX_OAUTH_TOKEN
+ARG FOLDER_ID
+
+ENV YANDEX_OAUTH_TOKEN=${YANDEX_OAUTH_TOKEN}
+ENV FOLDER_ID=${FOLDER_ID}
+
 WORKDIR /application
 COPY build/libs/*.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
