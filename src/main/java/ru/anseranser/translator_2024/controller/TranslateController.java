@@ -25,7 +25,8 @@ public class TranslateController {
     private final NetworkService networkService;
 
     @PostMapping
-    public String translate(@RequestBody TranslationInputDto translationInputDto, HttpServletRequest request) throws URISyntaxException, JsonProcessingException {
+    public String translate(@RequestBody TranslationInputDto translationInputDto, HttpServletRequest request)
+            throws URISyntaxException, JsonProcessingException {
         String clientIP = networkService.getClientIp(request);
         String translatedText = yandexTranslatorService.translate(
                 translationInputDto.getSourceText(),

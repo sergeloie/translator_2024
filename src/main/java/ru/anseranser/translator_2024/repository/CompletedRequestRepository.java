@@ -5,8 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.anseranser.translator_2024.model.CompletedRequest;
 
-import javax.sql.DataSource;
-
 @Repository
 @RequiredArgsConstructor
 public class CompletedRequestRepository {
@@ -14,6 +12,10 @@ public class CompletedRequestRepository {
 
     public void save(CompletedRequest completedRequest) {
         String sql = "INSERT INTO completed_request (ip_address, source_text, translated_text) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, completedRequest.getIpAddress(), completedRequest.getSourceText(), completedRequest.getTranslatedText());
+        jdbcTemplate.update(
+                sql,
+                completedRequest.getIpAddress(),
+                completedRequest.getSourceText(),
+                completedRequest.getTranslatedText());
     }
 }

@@ -14,19 +14,17 @@ import javax.sql.DataSource;
 public class Translator2024Application {
 
 
+    public static void main(String[] args) {
+        SpringApplication.run(Translator2024Application.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(Translator2024Application.class, args);
-	}
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
 
-	@Bean
-	public RestTemplate getRestTemplate() {
-		return new RestTemplate();
-	}
-
-	@Bean
-	public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
-		return new JdbcTemplate(dataSource);
-	}
-
+    @Bean
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 }
