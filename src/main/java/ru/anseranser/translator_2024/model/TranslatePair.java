@@ -7,15 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class YandexResponseDTO {
-    @JsonProperty("translations")
-    private List<TranslatePair> translations;
+public class TranslatePair {
+    @JsonProperty("text")
+    private String text;
+    @JsonProperty("detectedLanguageCode")
+    private String detectedLanguageCode;
 }
-

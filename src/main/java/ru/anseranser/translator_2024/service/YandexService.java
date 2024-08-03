@@ -1,11 +1,9 @@
 package ru.anseranser.translator_2024.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,7 +16,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Service
 public class YandexService {
-    private String TOKEN_URL = "https://iam.api.cloud.yandex.net/iam/v1/tokens";
+
+    @Value("${YANDEX_TOKEN_URL}")
+    private String YANDEX_TOKEN_URL;
 
     @Value("${YANDEX_OAUTH_TOKEN_ENV}")
     private String YANDEX_OAUTH_TOKEN;
@@ -32,9 +32,8 @@ public class YandexService {
         String jsonRequestBody = objectMapper.writeValueAsString(requestBody);
 
         HttpEntity<String> request = new HttpEntity<>(jsonRequestBody);
-        ResponseEntity<String> response = restTemplate.postForEntity(TOKEN_URL, request, String.class);
+        ResponseEntity<String> response = restTemplate.postForEntity(YANDEX_TOKEN_URL, request, String.class);
 
-        YandexToken token = objectMapper.readValue(response.getBody(), YandexToken.class);
-        return token;
+        return objectMapper.readValue(response.getBody(), YandexToken.class);
     }
 }
