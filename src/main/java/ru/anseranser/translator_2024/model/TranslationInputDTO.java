@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TranslationInputDto {
+public class TranslationInputDTO {
     private final String sourceLanguage;
     private final String targetLanguage;
     private final String sourceText;
