@@ -5,19 +5,15 @@ meta {
 }
 
 post {
-  url: https://translate.api.cloud.yandex.net/translate/v2/translate
+  url: http://127.0.0.1:9090/translate
   body: json
-  auth: bearer
-}
-
-auth:bearer {
-  token: t1.9euelZqUiZzKmpjLj5ibz5TGycuYmO3rnpWalJSWnY6NkcaWz5zOz5DMjo7l8_dkQklK-e8GWFtP_N3z9yRxRkr57wZYW0_8zef1656VmpaOic2Kks-eisnHl5CVnJrN7_zF656VmpaOic2Kks-eisnHl5CVnJrN.f81hvUBjYVXSuRhgo0Y9sCgELexSjuiZFIrrQTNuGoJIjpoHLK8YnJWs_RDG2UxN_cU-JbsPhj95DtLUYRUlDQ
+  auth: none
 }
 
 body:json {
   {
-      "folderId": "b1gtv27i6p2vpic0ae19",
-      "texts": ["Жизнь", "Сон"],
-      "targetLanguageCode": "es"
+      "sourceLanguage": "ru",
+      "targetLanguage": "en",
+      "sourceText": "молоко"
   }
 }
