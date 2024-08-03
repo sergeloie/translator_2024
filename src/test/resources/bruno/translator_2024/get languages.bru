@@ -1,11 +1,11 @@
 meta {
-  name: send to yandex
+  name: get languages
   type: http
-  seq: 3
+  seq: 4
 }
 
 post {
-  url: https://translate.api.cloud.yandex.net/translate/v2/translate
+  url: https://translate.api.cloud.yandex.net/translate/v2/languages
   body: json
   auth: bearer
 }
@@ -16,8 +16,6 @@ auth:bearer {
 
 body:json {
   {
-      "folderId": "b1gtv27i6p2vpic0ae19",
-      "texts": ["Жизнь", "Сон"],
-      "targetLanguageCode": "es"
+    "folderId": "b1gtv27i6p2vpic0ae19"
   }
 }
