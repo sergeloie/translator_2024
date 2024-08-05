@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Переводчик</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            width: 100%;
+            height: 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<form id="translate-form">
+    <label for="sourceLanguage">Source language:</label>
+    <input type="text" id="sourceLanguage" name="sourceLanguage" required>
+    <label for="targetLanguage">Target language:</label>
+    <input type="text" id="targetLanguage" name="targetLanguage" required>
+    <label for="sourceText">Text:</label>
+    <input type="text" id="sourceText" name="sourceText" required>
+    <button type="submit">Translate</button>
+</form>
+<div id="result"></div>
+
+<script>
+    const form = document.getElementById('translate-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const sourceLanguage = document.getElementById('sourceLanguage').value;
+        const targetLanguage = document.getElementById('targetLanguage').value;
+        const sourceText = document.getElementById('sourceText').value;
+
+        const data = {
+            "sourceLanguage" : sourceLanguage,
+            "targetLanguage" : targetLanguage,
+            "sourceText" : sourceText
+        };
+
+        fetch('/translate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.text())
+            .then(data => {
+                resultDiv.innerHTML = data;
+            })
+            .catch(error => {
+                resultDiv.innerHTML = 'Error:'+ error.message;
+            });
+    });
+</script>
+</body>
+</html>
