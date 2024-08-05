@@ -27,4 +27,6 @@ public class Translator2024Application {
     public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
+
+
 }
