@@ -10,7 +10,7 @@ docker pull anseranser/translator_2024:v1
 
 и запустить его
 ```shell
-docker run -p 9090:9090 --name=translator_2024 anseranser/translator_2024:v1
+docker run -d -p 9090:9090 --name=translator_2024 anseranser/translator_2024:v1
 ```
 
 после чего можно отправить запрос на перевод текста с помощью curl
