@@ -1,4 +1,8 @@
 # translator_2024
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sergeloie_translator_2024&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sergeloie_translator_2024)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sergeloie_translator_2024&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=sergeloie_translator_2024)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sergeloie_translator_2024&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=sergeloie_translator_2024)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=sergeloie_translator_2024&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=sergeloie_translator_2024)
 
 Приложение реализует перевод текста с помощью API Yandex Translate
 
