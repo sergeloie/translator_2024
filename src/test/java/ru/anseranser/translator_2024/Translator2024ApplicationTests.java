@@ -25,7 +25,7 @@ class Translator2024ApplicationTests {
 	@BeforeEach
 	void prepareToken() {
 		YandexToken yandexToken = new YandexToken();
-		yandexToken.setIamToken("t1.9euelZrOmJTHxsaQzcuUx8iMm4yLje3rnpWalJSWnY6NkcaWz5zOz5DMjo7l9PcDckZK-e8MYS6c3fT3QyBESvnvDGEunM3n9euelZqLismezs-Ji8idksyJi5SNz-_8xeuelZqLismezs-Ji8idksyJi5SNzw.tMp31TXBQYakzJdrsicznsnttx7bY41lSh7EWIQ9gUoXJFZEAf4hREb4S2qwjPableWzGMv2RNrDAy03MerWAA");
+		yandexToken.setIamToken("t1.hidden");
 		yandexToken.setExpiresAt(Instant.parse("2024-08-04T03:04:28.208949107Z"));
 		yandexTranslatorService.setYandexToken(yandexToken);
 	}
